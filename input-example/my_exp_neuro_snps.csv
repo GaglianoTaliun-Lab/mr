@@ -1,0 +1,5 @@
+chrpos,other_allele.exposure,effect_allele.exposure,eaf.exposure,beta.exposure,se.exposure,gene.exposure,SNP
+8:8363897,C,T,0.5017,0.02,0.003,SGK223,rs2921036
+9:11703892,T,C,0.7704,0.015,0.002,TYRP1,rs56318386
+18:35127427,C,A,0.3503,0.015,0.002,CELF4,rs1557341
+11:10247295,C,T,0.5085,-0.013,0.002,SBF2,rs716804
