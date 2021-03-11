@@ -1,2 +1,2 @@
 # mr
-Mendelian randomization protocol
+Mendelian randomization protocol and plots
