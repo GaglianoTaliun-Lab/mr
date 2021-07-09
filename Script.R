@@ -51,10 +51,12 @@ pl[3,]
 
 #4 v Align the SNPs on the same effect allele for exposure and outcome
 # by changing sign of beta.exposure if effect alleles do not match
-#lev2 <- unique( c( levels(pl$effect_allele.outcome), levels(pl$effect_allele.exposure) ) )
-#pl$effect_allele.outcome <- factor(pl$effect_allele.outcome, levels=lev2)
-#pl$effect_allele.exposure <- factor(pl$effect_allele.exposure, levels=lev2)
-#pl$effect_allele.exposure<-gsub(" ", "",pl$effect_allele.exposure, fixed = TRUE)
+pl$effect_allele.outcome<-as.factor(pl$effect_allele.outcome)
+pl$effect_allele.exposure<-as.factor(pl$effect_allele.exposure)
+lev2 <- unique( c( levels(pl$effect_allele.outcome), levels(pl$effect_allele.exposure) ) )
+pl$effect_allele.outcome <- factor(pl$effect_allele.outcome, levels=lev2)
+pl$effect_allele.exposure <- factor(pl$effect_allele.exposure, levels=lev2)
+pl$effect_allele.exposure<-gsub(" ", "",pl$effect_allele.exposure, fixed = TRUE)
 pl$beta.exposure[pl$effect_allele.exposure!=pl$effect_allele.outcome]<-pl$beta.exposure[pl$effect_allele.exposure!=pl$effect_allele.outcome] * -1
 pl[3,]
 
