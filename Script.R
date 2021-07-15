@@ -92,17 +92,6 @@ mr_ivw(MRInputObject,model="fixed")
 #Inverse-variance weighted method
 #(variants uncorrelated, fixed-effect model)
 
-#Number of Variants : 3 
-
-#------------------------------------------------------------------
-# Method Estimate Std Error 95% CI       p-value
-#    IVW    0.129     0.070 -0.009, 0.267   0.067
-#------------------------------------------------------------------
-#Residual standard error =  0.911 
-#Residual standard error is set to 1 in calculation of confidence interval by fixed-effect assumption.
-#Residual standard error is set to 1 in calculation of confidence interval when its estimate is less than 1.
-#Heterogeneity test statistic = 1.6613 on 3 degrees of freedom, (p-value = 0.4358)
-
 #4 viii get MR estimates for outcome using random effects
 mr_ivw(MRInputObject)
 
@@ -124,11 +113,6 @@ mr_median(MRInputObject)
 
 # Weighted median method 
 
-#Number of Variants : 3 
-#------------------------------------------------------------------
-#                 Method Estimate Std Error  95% CI       p-value
-# Weighted median method    0.136     0.084 -0.028, 0.300   0.105
-#------------------------------------------------------------------
 
 #------------------------------------------------------------------
 #                 Method Estimate Std Error  95% CI       p-value
@@ -140,17 +124,6 @@ mr_egger(MRInputObject)
 #MR-Egger method
 #(variants uncorrelated, random-effect model)
 
-#Number of Variants =  3 
-
-#------------------------------------------------------------------
-#      Method Estimate Std Error  95% CI       p-value
-#    MR-Egger    0.133     0.637 -1.115, 1.382   0.834
-# (intercept)    0.000     0.011 -0.021, 0.021   0.995
-#------------------------------------------------------------------
-#Residual Standard Error :  1.289
-#Residual standard error is set to 1 in calculation of confidence interval when its estimate is less than 1.
-#Heterogeneity test statistic = 1.6612 on 1 degrees of freedom, (p-value = 0.1974)
-#I^2_GX statistic: 56.8%
 
 #Number of Variants =  4 
 
@@ -190,12 +163,13 @@ mr_presso(BetaOutcome = "beta.outcome", BetaExposure = "beta.exposure", SdOutcom
 #5 save the data for future use
 write.csv(pl,"../output/Neuro_on_DrinksperW.csv")
 
+###UPDATE VALUES FOR ESTIMATES; BELOW ARE EXAMPLES
 #plot beta.exposure vs. beta.outcome for instruments
 pdf('../output/exp_out-Neuro_on_DrinksperW.pdf')
 plot(pl$beta.exposure, pl$beta.outcome, xlab= "Beta Exposure", ylab= "Beta Outcome", main="", xlim=c(0,-0.12), ylim=c(-0.008,0.004))
 text(pl$beta.outcome ~pl$beta.exposure, labels=pl$SNP,data=pl, cex=0.5, font=2, pos=3)
 abline(a=0, b=0.076, col='blue') #IVW estimate
-abline(a=-0.007, b=0.529, col='red') #MR=Egger estimate
+abline(a=-0.529, b=0.529, col='red') #MR=Egger estimate
 abline(a=0, b=0.093, col="purple") #Weighted Median
 legend("topright", c("Inverse Variance Weighted", "Weighted Median", "MR-Egger"), text.col = c("blue", "purple", "red"), bty='n', cex=0.75)
 dev.off()
