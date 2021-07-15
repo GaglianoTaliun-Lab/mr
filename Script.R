@@ -192,15 +192,6 @@ write.csv(pl,"../output/Neuro_on_DrinksperW.csv")
 
 #plot beta.exposure vs. beta.outcome for instruments
 pdf('../output/exp_out-Neuro_on_DrinksperW.pdf')
-plot(pl$beta.exposure, pl$beta.outcome, xlab= "Beta Exposure", ylab= "Beta Outcome", main="")
-text(pl$beta.outcome ~pl$beta.exposure, labels=pl$SNP,data=pl, cex=0.5, font=2, pos=3)
-abline(a=0, b=0.129, col='blue') #IVW estimate
-abline(a=0, b=0.133, col='red') #MR=Egger estimate
-abline(a=0, b=0.136, col="purple") #Weighted Median
-legend("topleft", c("Inverse Variance Weighted", "Weighted Median", "MR-Egger"), text.col = c("blue", "purple", "red"), bty='n', cex=0.75)
-dev.off()
-
-pdf('../output/new-exp_out-Neuro_on_DrinksperW.pdf')
 plot(pl$beta.exposure, pl$beta.outcome, xlab= "Beta Exposure", ylab= "Beta Outcome", main="", xlim=c(0,-0.12), ylim=c(-0.008,0.004))
 text(pl$beta.outcome ~pl$beta.exposure, labels=pl$SNP,data=pl, cex=0.5, font=2, pos=3)
 abline(a=0, b=0.076, col='blue') #IVW estimate
@@ -211,15 +202,6 @@ dev.off()
 
 #plot Wald vs. Waldvar for instruments
 #Plot of an ideal MR analysis will produce a symmetric scatterplot where data points with higher instrumental strength (approximated by inverse of standard error) will coalesce around the beta of the MR result.
-pdf('../output/Funnel-Neuro_on_DrinksperW.pdf')
-plot(pl$Wald, 1/pl$Waldvar, xlab= "Wald", ylab= "1/Waldvar", main="")
-text(1/pl$Waldvar ~pl$Wald, labels=pl$SNP,data=pl, cex=0.5, font=2, pos=3)
-abline(v=0.129, col='blue') #IWV estimate
-abline(v=0.133, col="red") #MR-Egger estimate
-abline(v=0.136, col="purple") #Weighted Median
-legend("center", c("Inverse Variance Weighted", "Weighted Median", "MR-Egger"), text.col = c("blue", "purple", "red"), bty='n', cex=0.75)
-dev.off()
-
 pdf('../output/new-Funnel-Neuro_on_DrinksperW.pdf')
 plot(pl$Wald, 1/pl$Waldvar, xlab= "Wald", ylab= "1/Waldvar", main="", xlim=c(-0.2,0.6))
 text(1/pl$Waldvar ~pl$Wald, labels=pl$SNP,data=pl, cex=0.5, font=2, pos=3)
