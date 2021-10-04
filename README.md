@@ -1,7 +1,9 @@
 # mr
 Mendelian randomization protocol and plots
 
-
+#### Useful resources
+MR power calculator https://sb452.shinyapps.io/power/ based on https://pubmed.ncbi.nlm.nih.gov/24608958/ 
+MR dictionary https://mr-dictionary.mrcieu.ac.uk (edited) 
 
 #### Power calculation example
 via the "Online sample size and power calculator for Mendelian randomization with a binary outcome" https://sb452.shinyapps.io/power/ based on https://pubmed.ncbi.nlm.nih.gov/24608958/. 
