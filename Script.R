@@ -141,7 +141,7 @@ if (!require("devtools")) { install.packages("devtools") } else {}
 devtools::install_github("rondolab/MR-PRESSO")
 library(MRPRESSO)
 
-#run MR-Presso 
+#run MR-Presso- a test to detect outliers among the instrumental variables 
 mr_presso(BetaOutcome = "beta.outcome", BetaExposure = "beta.exposure", SdOutcome = "se.outcome", SdExposure = "se.exposure",
           OUTLIERtest = TRUE, DISTORTIONtest = TRUE, data = pl, NbDistribution = 100000,  SignifThreshold = 0.05)
 #Error in mr_presso(BetaOutcome = "beta.outcome", BetaExposure = "beta.exposure",  : 
@@ -169,7 +169,7 @@ pdf('../output/exp_out-Neuro_on_DrinksperW.pdf')
 plot(pl$beta.exposure, pl$beta.outcome, xlab= "Beta Exposure", ylab= "Beta Outcome", main="", xlim=c(0,-0.12), ylim=c(-0.008,0.004))
 text(pl$beta.outcome ~pl$beta.exposure, labels=pl$SNP,data=pl, cex=0.5, font=2, pos=3)
 abline(a=0, b=0.076, col='blue') #IVW estimate
-abline(a=-0.529, b=0.529, col='red') #MR=Egger estimate
+abline(a=-0.007, b=0.529, col='red') #MR=Egger estimate
 abline(a=0, b=0.093, col="purple") #Weighted Median
 legend("topright", c("Inverse Variance Weighted", "Weighted Median", "MR-Egger"), text.col = c("blue", "purple", "red"), bty='n', cex=0.75)
 dev.off()
