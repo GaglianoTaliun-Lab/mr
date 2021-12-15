@@ -52,3 +52,7 @@ pdf("leaveoneoute.pdf")
 mr_leaveoneout_plot(res_loo)
 dev.off()
 
+#Testing for horizontal pleiotropy using MR-Egger intercept test
+mr_pleiotropy_test(dat)
+
+
