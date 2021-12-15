@@ -2,7 +2,7 @@ library('TwoSampleMR')
 
 ao <- available_outcomes()
 #exposure ebi-a-GCST90002412: LDL cholesterol levels
-exposure_dat <- extract_instruments(c('id:ebi-a-GCST000759'))
+exposure_dat <- extract_instruments(c('ebi-a-GCST000759'))
 exposure_dat <- clump_data(exposure_dat)
 #outcome ieu-a-798: myocardial infarction
 outcome_dat <- extract_outcome_data(exposure_dat$SNP, c('ieu-a-798'), proxies = 1, rsq = 0.8, align_alleles = 1, palindromes = 1, maf_threshold = 0.3) 
